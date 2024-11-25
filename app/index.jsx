@@ -16,8 +16,6 @@ export default function App(){
 
 
 
-
-
 // index js will be as the home page the / route
 // layout we add the structure that will appears in all pages as navbar of footer and the cuurent rendered page child
 // and we add custom layout for custom components in sperated folder this layout will apply to all the files inside this folders

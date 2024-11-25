@@ -9,9 +9,9 @@ export default function App(){
         <View className="flex-1 items-center justify-center bg-white">
             <Text>Aora</Text>
             <StatusBar style="auto"/>
-            <Link className="text-blue-400 underline" href="/profile">profile</Link>
+            <Link className="text-blue-400 underline" href="/home">home</Link>
         </View>
-    )
+    ) 
 }
 
 
@@ -20,3 +20,4 @@ export default function App(){
 
 // index js will be as the home page the / route
 // layout we add the structure that will appears in all pages as navbar of footer and the cuurent rendered page child
+// and we add custom layout for custom components in sperated folder this layout will apply to all the files inside this folders

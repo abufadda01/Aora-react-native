@@ -1,16 +1,39 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet , View , Text } from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet , View , Text, Image , ScrollView } from "react-native";
+import { Redirect , router } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 import "../globals.css"
+import {images} from "../constants"
+import CustomButton from "../components/CustomButton";
+
 
 
 export default function App(){
     return(
-        <View className="flex-1 items-center justify-center bg-white">
-            <Text>Aora</Text>
-            <StatusBar style="auto"/>
-            <Link className="text-blue-400 underline" href="/home">home</Link>
-        </View>
+        <SafeAreaView className="bg-primary h-full"> 
+            <ScrollView contentContainerStyle={{height : "100%"}}>
+
+                <View className="w-full mt-4 justify-start items-center min-h-[80vh] px-4">
+                    
+                    <Image className="w-[130px] h-[85px]" resizeMode="contain" source={images.logo}/>
+                    <Image className="max-w-[380px] h-[300px] w-full" resizeMode="contain" source={images.cards}/>
+
+                    <View className="relative mt-7">
+                        <Text className="text-4xl text-white font-bold text-center font-plight">Discover Endless Possibilities with <Text className="text-secondary-200">Aora</Text> </Text>
+                        <Image resizeMode="contain" source={images.path} className="w-[137px] h-[15px] absolute -bottom-1 -right-9"/>
+                    </View>
+
+                    <Text className="text-md font-plight text-gray-100 text-center mt-8">Where creativity meets innovation embark on a journey of limitless exploration</Text>
+
+                    <CustomButton title="Continue with Email" handlePress={() => router.push("/sign-in")} containerStyles="w-full mt-8" />
+
+                </View>
+
+            </ScrollView>
+
+            <StatusBar backgroundColor="#161622" style="light"/>
+
+        </SafeAreaView>
     ) 
 }
 

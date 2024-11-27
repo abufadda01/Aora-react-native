@@ -6,9 +6,9 @@ import icons from "../../constants/icons"
 
 const TabIcon = ({icon , color , name , focused}) => {
   return (
-    <View className="items-center justify-center gap-2 mt-4">
-      <Image source={icon} resizeMode='contain' tintColor={color} className="w-6 h-6" />
-      <Text className={`${focused ? "font-psemibold" : "font-pregular"} text-[10px]`}>{name}</Text>
+    <View className="items-center justify-center gap-2 mt-6">
+      <Image source={icon} resizeMode='contain' tintColor={color} className="w-5 h-5" />
+      <Text style={{color : color}} className={`${focused ? "font-psemibold" : "font-pregular"} text-[9px]`}>{name}</Text>
     </View> 
   )
 }
@@ -16,8 +16,11 @@ const TabIcon = ({icon , color , name , focused}) => {
 const TabsLayout = () => {
   return (
     <>
-      <Tabs screenOptions={{tabBarShowLabel : false}}>
+      <Tabs screenOptions={{tabBarShowLabel : false , tabBarActiveTintColor : "#FFA001" , tabBarInactiveTintColor : "#CDCDE0" , tabBarStyle : {backgroundColor : "#161622" , borderTopWidth : 1 , borderTopColor : "#232533" , height : 85}}}>
         <Tabs.Screen name='home' options={{title : "Home" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.home} color={color} focused={focused} name="Home" />)}}/>
+        <Tabs.Screen name='mark' options={{title : "mark" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.bookmark} color={color} focused={focused} name="mark" />)}}/>
+        <Tabs.Screen name='create' options={{title : "Create" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.plus} color={color} focused={focused} name="Add" />)}}/>
+        <Tabs.Screen name='profile' options={{title : "Profile" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.profile} color={color} focused={focused} name="Profile" />)}}/>
       </Tabs>
     </>
   )

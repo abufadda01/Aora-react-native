@@ -15,7 +15,6 @@ export default function App(){
 
     if(!loading && isLoggedIn) return <Redirect href="/home" />
 
-
     return(
         <SafeAreaView className="bg-primary h-full"> 
         

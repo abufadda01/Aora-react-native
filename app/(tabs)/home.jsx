@@ -6,7 +6,7 @@ import SearchInput from '../../components/SearchInput'
 import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { RefreshControl } from 'react-native'
-import { getAllPosts } from '../../lib/appwrite'
+import { getAllPosts , getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../hooks/useAppwrite'
 import VideoCard from '../../components/VideoCard'
 
@@ -15,6 +15,7 @@ import VideoCard from '../../components/VideoCard'
 const Home = () => {
 
   const {data : posts , refetch , isLoading} = useAppwrite(getAllPosts)
+  const {data : latestPosts , refetch : refetchLatestPosts , isLoading : isLoadingLatestPosts} = useAppwrite(getLatestPosts)
 
   const [refreshing, setrefreshing] = useState(false)
 
@@ -26,7 +27,7 @@ const Home = () => {
   }
 
 
-
+  
   return (
     <SafeAreaView className="bg-primary border-2 h-full">
 
@@ -42,7 +43,7 @@ const Home = () => {
 
               <View>
                 <Text className="font-pmedium text-sm text-gray-100">Welcome Back</Text>
-                <Text className="font-psemibold text-2xl text-secondary">Aora</Text>
+                <Text className="font-psemibold mt-0.5 text-3xl text-secondary">Aora</Text>
               </View>
 
               <View className="mt-1.5">
@@ -57,7 +58,7 @@ const Home = () => {
 
               <Text className="text-gray-100 text-lg font-pregular mb-3">Latest Videos</Text>
 
-              <Trending posts={[]} />
+              <Trending posts={latestPosts} />
 
             </View>
 

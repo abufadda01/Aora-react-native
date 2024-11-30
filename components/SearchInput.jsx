@@ -11,7 +11,7 @@ const SearchInput = ({title , value , handleChangeText , otherStyles , keyboardT
 
   return (
 
-      <View className={`flex-row w-full space-x-4 border-2 rounded-2xl mt-2 mb-2 h-16 px-4 items-center ${isFocused ? 'border-secondary-200' : 'border-black-200'} bg-black-100`}>
+      <View className={`flex-row w-full space-x-6 border-2 rounded-2xl mt-2 mb-2 h-16 px-4 items-center ${isFocused ? 'border-secondary-200' : 'border-black-200'} bg-black-100`}>
 
         <TextInput
             className="mt-0.5 text-base text-white flex-1 font-pregular"
@@ -25,7 +25,7 @@ const SearchInput = ({title , value , handleChangeText , otherStyles , keyboardT
         />
 
         <TouchableOpacity>
-            <Image source={icons.search} className="w-5 h-5" resizeMode='contain'/>
+            <Image source={icons.search} className="w-5 h-5 ml-2" resizeMode='contain'/>
         </TouchableOpacity>
       
       </View>

@@ -16,7 +16,7 @@ const TabIcon = ({icon , color , name , focused}) => {
 const TabsLayout = () => {
   return (
     <>
-      <Tabs screenOptions={{tabBarShowLabel : false , tabBarActiveTintColor : "#FFA001" , tabBarInactiveTintColor : "#CDCDE0" , tabBarStyle : {backgroundColor : "#161622" , borderTopWidth : 1 , borderTopColor : "#232533" , height : 85}}}>
+      <Tabs screenOptions={{tabBarShowLabel : false , tabBarActiveTintColor : "#FFA001" , tabBarInactiveTintColor : "#CDCDE0" , tabBarStyle : {backgroundColor : "#161622" , borderTopWidth : 2 , borderTopColor : "#232533" , height : 90}}}>
         <Tabs.Screen name='home' options={{title : "Home" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.home} color={color} focused={focused} name="Home" />)}}/>
         <Tabs.Screen name='mark' options={{title : "mark" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.bookmark} color={color} focused={focused} name="mark" />)}}/>
         <Tabs.Screen name='create' options={{title : "Create" , headerShown : false , tabBarIcon : ({color , focused}) => (<TabIcon icon={icons.plus} color={color} focused={focused} name="Add" />)}}/>

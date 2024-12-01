@@ -1,13 +1,32 @@
-import { View, Text ,TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, Text ,TextInput, TouchableOpacity, Image, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { icons } from '../constants'
+import {router, usePathname} from "expo-router"
 
 
-const SearchInput = ({title , value , handleChangeText , otherStyles , keyboardType , placeholder , ...props}) => {
 
+const SearchInput = ({initialQuery}) => {
+
+    const pathName = usePathname()
     const [isFocused, setIsFocused] = useState(false)
-    const [showPassword, setshowPassword] = useState(false)
+    const [query, setQuery] = useState(initialQuery || "") // to set an initial value for the search input if we already have a search value
+
+
+    const handleQueryChange = () => {
+
+      if(!query) {
+        return Alert.alert("Missing" , "please enter a search query") // If the input is empty, an alert is shown.
+      }
+
+      if(pathName.startsWith("/search")){
+        router.setParams({query}) // If already on /search/:query Updates the route's query parameter value using router.setParams
+      }else{
+        router.push(`/search/${query}`) // If on another page: Navigates to /search/:query and pass the query value in the url
+      }
+
+    }
  
+
 
   return (
 
@@ -15,16 +34,15 @@ const SearchInput = ({title , value , handleChangeText , otherStyles , keyboardT
 
         <TextInput
             className="mt-0.5 text-base text-white flex-1 font-pregular"
-            secureTextEntry={title === "Password" && !showPassword}
-            value={value}
+            value={query}
             placeholder="Search for a video topic"
-            placeholderTextColor="#7b7b8b"
-            onChangeText={handleChangeText}
+            placeholderTextColor="#CDCDE0"
+            onChangeText={(e) => setQuery(e)}
             onFocus={() => setIsFocused(true)}  
             onBlur={() => setIsFocused(false)}
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleQueryChange}>
             <Image source={icons.search} className="w-5 h-5 ml-2" resizeMode='contain'/>
         </TouchableOpacity>
       
@@ -35,3 +53,11 @@ const SearchInput = ({title , value , handleChangeText , otherStyles , keyboardT
 
 
 export default SearchInput
+
+
+
+
+
+
+
+

@@ -24,6 +24,7 @@ const zoomOut = {
 }
 
 
+
 const TrendingItem = ({activeItem , item}) => {
 
   const [play, setplay] = useState(false)
@@ -38,7 +39,7 @@ const TrendingItem = ({activeItem , item}) => {
       <TouchableOpacity onPress={() => setplay(true)} activeOpacity={0.7} className="relative justify-center items-center">
         <ImageBackground resizeMode='cover' source={{uri : item.thumbnail}} className="w-52 ml-3 mb-2 h-60 rounded-[40px] my-5 overflow-hidden shadow-lg shadow-black/40"/> 
         <Image source={icons.play} className="w-12 h-12 bg-black-100 rounded-full p-1 absolute" resizeMode='contain'/>
-        </TouchableOpacity>}
+      </TouchableOpacity>}
       
     </Animatable.View>
   )

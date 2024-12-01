@@ -10,12 +10,12 @@ const useAppwrite = (fn) => {
     const fetchData = async () => {
         setisLoading(true)
         try {
-        const res = await fn()
-        setData(res)
+            const res = await fn()
+            setData(res)
         } catch (error) {
-        console.log(error)
+            console.log(error)
         }finally{
-        setisLoading(false)
+            setisLoading(false)
         }
     }
 
